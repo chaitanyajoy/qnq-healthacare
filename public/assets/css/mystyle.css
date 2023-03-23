@@ -1,0 +1,81 @@
+.uploadBtn{
+    background: radial-gradient(#e7f238, #13a22da1);
+    margin-right: 80px;
+    margin-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.icon-color{
+    color: green;
+}
+
+.about-round-icon-logo{
+    border-radius: 100px;
+    padding-bottom: 15px;
+}
+
+
+/*SLIDER - HOME*/
+@keyframes slidy {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+    }
+    
+    body { margin: 0; } 
+    div#slider { overflow: hidden;
+        /* margin-right: 90px;
+        margin-left: 90px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-radius: 30px;
+        box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px; */
+    }
+    div#slider figure img { width: 20%; float: left; }
+    div#slider figure { 
+      position: relative;
+      width: 500%;
+      margin: 0;
+      left: 0;
+      text-align: left;
+      font-size: 0;
+      animation: 30s slidy infinite; 
+    }
+    
+
+    /* Testimonials background*/
+    .home-testimonials{
+        background: linear-gradient(0deg, rgb(6 38 165 / 40%), rgb(18 18 27 / 44%)), url(https://images.pexels.com/photos/5910953/pexels-photo-5910953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+
+    /*App*/
+    .embed-responsive-qr{
+        margin-top: 10px;
+    margin-right: 10px;
+    
+    }
+
+    .embed-responsive-qr-playstore{
+    width: 270px;
+    height: 100px;
+    }
+
+    /*OTP Hidden*/
+
+    #OTPForm {
+        visibility: hidden;
+    }
