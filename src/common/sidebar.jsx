@@ -2,6 +2,7 @@ import MobileMenus from '@/layout/header/mobile-menus';
 import ImagePopup from '@/modals/ImagePopup';
 import Link from 'next/link';
 import React, { useState } from "react";
+import fetch from 'node-fetch';
 
 const images = [
   {
@@ -21,24 +22,47 @@ const sendOTP = async () => {
   document.getElementById('OTPForm').style = 'visibility: visible';
   const mobileNo = document.getElementById('mobileNumber');
   const mobileNumber = mobileNo.value;
-  const response = await fetch('http://qnqhealthcare.com/qnqerpws/ws/sendotp', {
-    method: 'GET',
+  const url = '/api/handleSendOTP';
+  const options = {
+    method: "GET",
+    mode: "cors",
     // body: '', // string or object
     headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'companyid': '917d8aa2-7c4e-4282-b27f-0beb0228ac7b',
-      'info': String(mobileNumber),
-      'mode': 'no-cors'
+      "companyid": "917d8aa2-7c4e-4282-b27f-0beb0228ac7b",
+      "content-type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "info": String(mobileNumber),
     }
-  });
+  }
+  const response = await fetch(url,options);
+ 
   const res = await response.json(); //extract JSON from the http response
-
-  
+  console.log("response is ", res)
 }
 
-const verifyOTP = () => {
+const verifyOTP = async () => {
+  const mobileNo = document.getElementById('mobileNumber');
+  const mobileNumber = mobileNo.value;
+  const otp = document.getElementById('mobileNumberOTP');
+  const otpValue = otp.value;
 
+  const url = '/api/handleSubmitButton';
+  const options = {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      "customer": JSON.stringify({
+        "MobileNo" : String(mobileNumber),
+        "otp" : String(otpValue)
+      }),
+    }
+  }
+
+  console.log("verify otp options is ",options )
+
+  const response = await fetch(url,options);
+  const res = await response.json(); //extract JSON from the http response
+  console.log("response is ", res)
 }
 const displayOTPForm = () => {
   // const mobileNo = document.getElementById('mobileNumber');
@@ -106,7 +130,7 @@ const Sidebar = ({ isActive, setIsActive }) => {
           
           <div className="tpsideinfo__content-inputarea-input hidden" id='OTPForm'>
             <form action="#">
-              <input type="text" placeholder="Enter OTP" />
+              <input type="text" placeholder="Enter OTP" id='mobileNumberOTP'/>
               <button className="tpsideinfo__content-inputarea-input-btn" onClick={verifyOTP}>
                 <i className="fa-solid fa-paper-plane"></i>
                 Submit
