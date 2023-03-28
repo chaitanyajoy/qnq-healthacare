@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.14",
+    "@mui/styles": "^5.11.13",
     "@next/font": "13.1.6",
     "@popperjs/core": "^2.11.6",
     "antd": "^5.1.7",
