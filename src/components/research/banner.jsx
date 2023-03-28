@@ -14,13 +14,13 @@ const Banner = () => {
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-6 col-12">
               <div className="tp-breadcrumb">
-                <h2 className="tp-breadcrumb__title">Research</h2>
+                <h2 className="tp-breadcrumb__title">Careers</h2>
               </div>
             </div>
             <div className="col-lg-6 col-md-6 col-12">
               <div className="tp-breadcrumb__link d-flex">
                 <span>
-                  Bioxlab : <Link href="/research"> Project</Link>
+                  Qnq : <Link href="/research"> Work with us</Link>
                 </span>
               </div>
             </div>

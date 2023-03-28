@@ -47,7 +47,7 @@ const Team = () => {
     <>
       <section
         className="team-area grey-bg pt-120 pb-80"
-        style={{ backgroundImage: `url(/assets/img/shape/shape-bg-01.png)` }}
+        style={{ backgroundImage: `url(/assets/img/team/HR VP.png)` }}
       >
         <div className="container">
           <div className="row align-items-center">
@@ -56,7 +56,7 @@ const Team = () => {
                 <span className="tp-section__sub-title left-line mb-25">
                   Our Team
                 </span>
-                <h3 className="tp-section__title mb-75">Meet Specialist</h3>
+                <h3 className="tp-section__title mb-75">Meet Leaders</h3>
               </div>
             </div>
             <div className="col-lg-4 col-md-4 col-12">

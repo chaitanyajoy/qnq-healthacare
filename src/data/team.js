@@ -1,7 +1,7 @@
 const team_data = [
   {
     id: 1,
-    img: "/assets/img/team/team-thumb-01.jpg",
+    img: "/assets/img/team/HR VP.jpg",
     name: "Cameron Williamson",
     title: "Genetic Specialist",
     des: " Providing insight-driven transformation to investment banks, wealth and asset mana, exchanges, Finance",
@@ -112,9 +112,9 @@ const team_data = [
   },
   {
     id: 4,
-    img: "/assets/img/team/team-thumb-04.jpg",
+    img: "/assets/img/team/VP_Image/HR VP.jpg",
     name: "Jhon Methweu",
-    title: "Radiologist Specialist",
+    title: "Vice President",
     des: " Providing insight-driven transformation to investment banks, wealth and asset mana, exchanges, Finance",
     social_links: [
       {
@@ -149,10 +149,10 @@ const team_data = [
   },
   {
     id: 5,
-    img: "/assets/img/team/team-thumb-05.jpg",
-    name: "Jhon Methweu",
-    title: "Genetic Specialist",
-    des: " Providing insight-driven transformation to investment banks, wealth and asset mana, exchanges, Finance",
+    img: "/assets/img/team/VP_Image/IT VP.jpg",
+    name: "Tamizhvaanan G",
+    title: "VP-IT & Cyber Security",
+    des: "Tamizhvaanan G is a Cyber Security professional passionate for technology, IoT & Cyber Forensics., he also has significant experience across multiple domains. Tamizhvaanan is highly experienced in forming, leading, and managing, high performance IT teams. ",
     social_links: [
       {
         link: "https://www.youtube.com/",
@@ -186,7 +186,7 @@ const team_data = [
   },
   {
     id: 6,
-    img: "/assets/img/team/team-thumb-06.jpg",
+    img: "/assets/img/team/VP_Image/MSFO VP.jpg",
     name: "Jhon Methweu",
     title: "Genetic Specialist",
     des: " Providing insight-driven transformation to investment banks, wealth and asset mana, exchanges, Finance",
