@@ -4,16 +4,12 @@ import React from "react";
 const FooterFour = ({ style_2 = false }) => {
   return (
     <>
-      <footer>
-        <div
-          className={`footer-area ${
-            style_2 ? "pt-105" : "tp-footer-white-content theme-bg pt-95"
-          } `}
-        >
+       <footer>
+        <div className="footer-area pt-105">
           <div className="tp-footer-top pb-25">
             <div className="container">
               <div className="row">
-                <div className="col-xl-4 col-lg-4 col-md-6">
+                <div className="col-lg-4 col-md-6">
                   <div
                     className="tp-footer-widget footer-2-col-1 mb-40 wow fadeInUp"
                     data-wow-delay=".2s"
@@ -21,29 +17,32 @@ const FooterFour = ({ style_2 = false }) => {
                     <div className="tp-footer-widget__content mb-95">
                       <i>FEEL FREE TO CONTACT US</i>
                       <h4 className="tp-footer-widget__contact mb-20">
-                        <a href="tel:61383766284">61 383 766 284</a>
+                        <a href="tel:61383766284">Download Our App</a>
                       </h4>
-                      <a href="mailto:noreply@envato.com">noreply@envato.com</a>
+                      <img src="https://qnqhealthcare.com/images/playstore.webp" class="embed-responsive-qr-playstore"  height="120" alt="QnQ Healthcare" title="QnQ Healthcare"></img>
+                      <img src="https://qnqhealthcare.com/images/qr-code.png" class="embed-responsive-qr" height="120" alt="QnQ Healthcare" title="QnQ Healthcare"></img>
+                     
+                      <a href="mailto:care@qnqhealthcare.com">care@qnqhealthcare.com</a>
                     </div>
-                    <div className="tp-footer-widget__sub-sec">
+                    {/* <div className="tp-footer-widget__sub-sec">
                       <span className="tp-footer-widget__sub-title mb-5">
                         Career
                       </span>
                       <p>
-                        Nam eget dui vel quam sodales semper quis porttitor{" "}
+                        Nam eget dui vel quam sodales semper quis porttitor
                         <br /> tortor. Vivamus quis ex nulla ...Nam eget dui vel
                         quam <br /> sodales semper quis porttitor tortor.
                       </p>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
-                <div className="col-xl-3 col-lg-3 col-md-6">
+                <div className="col-lg-3 col-md-6">
                   <div
                     className="tp-footer-widget footer-2-col-2 mb-40 wow fadeInUp"
                     data-wow-delay=".4s"
                   >
                     <span className="tp-footer-widget__title mb-15">
-                      Qnq links
+                      Qnq Links
                     </span>
                     <div className="tp-footer-widget__links mb-35">
                       <ul>
@@ -54,16 +53,16 @@ const FooterFour = ({ style_2 = false }) => {
                           <Link href="/about">Help & About us</Link>
                         </li>
                         <li>
-                          <Link href="/contact">Shipping & Returns</Link>
+                          <Link href="/shop-details">Franchise Enquiry</Link>
                         </li>
                         <li>
-                          <Link href="/contact">Refund Policy</Link>
+                          <Link href="/">Refund Policy</Link>
                         </li>
                         <li>
                           <Link href="/about">About us</Link>
                         </li>
                         <li>
-                          <Link href="/services-details">Services</Link>
+                          <Link href="/services-details">Products</Link>
                         </li>
                       </ul>
                     </div>
@@ -81,54 +80,54 @@ const FooterFour = ({ style_2 = false }) => {
                     </div>
                   </div>
                 </div>
-                <div className="col-xl-2 col-lg-2 col-md-6">
+                <div className="col-lg-2 col-md-6">
                   <div
                     className="tp-footer-widget footer-2-col-3 mb-40 wow fadeInUp"
                     data-wow-delay=".6s"
                   >
                     <span className="tp-footer-widget__title mb-15">
-                      Customer Service
+                       Quick Links
                     </span>
                     <div className="tp-footer-widget__links">
                       <ul>
                         <li>
-                          <a href="#">Orders</a>
+                          <a href="#">Bulk Orders</a>
                         </li>
                         <li>
-                          <a href="#">Downloads</a>
+                          <a href="#">Pharma Sourcing</a>
                         </li>
                         <li>
-                          <a href="#">Shipping & Returns</a>
+                          <a href="shop-details">Investor Queries</a>
                         </li>
                         <li>
-                          <a href="#">Addresses</a>
+                          <a href="#">Milestones & History</a>
                         </li>
                         <li>
-                          <a href="#">Account details</a>
+                          <a href="#">Terms & Conditions</a>
                         </li>
                         <li>
-                          <a href="#">Logout</a>
+                          <a href="#">Privacy Policy</a>
                         </li>
                         <li>
-                          <a href="#">Lost password</a>
+                          <a href="#">Disclaimer</a>
                         </li>
                         <li>
-                          <a href="#">Privacy</a>
-                        </li>
-                        <li>
-                          <a href="#">Policy</a>
+                          <a href="#">Legal Notices</a>
                         </li>
                         <li>
                           <a href="#">Careers</a>
                         </li>
                         <li>
-                          <a href="#">Support</a>
+                          <a href="#">Find a Pharmacy</a>
+                        </li>
+                        <li>
+                          <a href="#">Customer Feedback</a>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
-                <div className="col-xl-3 col-lg-3 col-md-6">
+                <div className="col-lg-3 col-md-6">
                   <div
                     className="tp-footer-widget footer-2-col-4 mb-40 wow fadeInUp"
                     data-wow-delay=".8s"
@@ -138,15 +137,15 @@ const FooterFour = ({ style_2 = false }) => {
                     </span>
                     <div className="tp-footer-widget__links mb-120">
                       <ul>
-                        <li>Ta-134/A, Gulshan Badda Link </li>
+                        <li>	No.51,DR Building,Opposite to Aavin Factory,Villupuram </li>
                         <li>
                           <a href="tel:(+880)15569569365">
-                            (+880)155 69569 365
+                            (+91) 95977 06555
                           </a>
                         </li>
                         <li>
                           <a href="mailto:support@rstheme.com">
-                            support@rstheme.com
+                          care@qnqhealthcare.com
                           </a>
                         </li>
                         <li>Office Hours: 8AM - 11PM</li>
@@ -181,9 +180,8 @@ const FooterFour = ({ style_2 = false }) => {
                 <div className="col-xl-6 col-lg-6 col-md-12 col-12">
                   <div className="footer-widget__copyright copyright-white">
                     <span>
-                     
-                      © Copyright © {new Date().getFullYear()}
-                      <a href="index"> Theme_pure</a>.
+                      © Copyright ©{new Date().getFullYear()}
+                      <Link href="/"> Qnq Healthcare</Link>.
                       <i> All Rights Reserved Copyright</i>
                     </span>
                   </div>
@@ -198,7 +196,7 @@ const FooterFour = ({ style_2 = false }) => {
                         <a href="#">Privacy policy</a>
                       </li>
                       <li>
-                        <a href="#">Pricing</a>
+                        <a href="#">Press</a>
                       </li>
                     </ul>
                   </div>

@@ -7,17 +7,21 @@ import Specialists from "@/common/specialists";
 import NavTab from "@/common/nav-tab";
 import Team from "@/common/team";
 import FooterFour from "@/layout/footer/footer-4";
+import Gallery from "../home/home-2/gallery";
+import AboutContent1 from "@/common/about-content-1";
 
 const About = () => {
   return (
     <>
       <HeaderTwo />
       <Banner />
-      <AboutArea />
-      <Counter />
-      <Specialists />
-      <NavTab />
+      {/* <AboutArea />
+      <Counter /> */}
+      {/* <Specialists /> */}
+      {/* <NavTab /> */}
       <Team />
+      <Gallery/>
+      <AboutContent1/>
       <FooterFour />
     </>
   );

@@ -5,115 +5,200 @@ const FooterThree = () => {
   return (
     <>
       <footer>
-        <div className="footer-area tp-common-area footer-white-content theme-bg pt-105">
+        <div className="footer-area pt-105">
           <div className="tp-footer-top pb-25">
             <div className="container">
               <div className="row">
-                <div className="col-lg-7 col-md-6">
-                  <div
-                    className="footernewsletter mb-40 wow fadeInUp"
-                    data-wow-delay=".2s"
-                  >
-                    <h4 className="footernewsletter__title">
-                      Subscribe Newslatter
-                    </h4>
-                    <p>
-                      Exerci tation ullamcorper suscipit lobortis nisl aliquip{" "}
-                    </p>
-                  </div>
-                </div>
-                <div className="col-lg-5 col-md-6">
-                  <div
-                    className="footernewsletter__form p-relative wow fadeInUp"
-                    data-wow-delay=".4s"
-                  >
-                    <form action="#">
-                      <input type="text" placeholder="Enter Mail" />
-                      <button className="footernewsletter__fw-news-btn">
-                        <i className="fa-solid fa-paper-plane"></i>
-                      </button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <div className="row pb-40 pt-50">
                 <div className="col-lg-4 col-md-6">
                   <div
-                    className="footercontact mb-40 wow fadeInUp"
+                    className="tp-footer-widget footer-2-col-1 mb-40 wow fadeInUp"
                     data-wow-delay=".2s"
                   >
-                    <div className="footercontact__icon">
-                      <i className="flaticon-placeholder"></i>
+                    <div className="tp-footer-widget__content mb-95">
+                      <i>FEEL FREE TO CONTACT US</i>
+                      <h4 className="tp-footer-widget__contact mb-20">
+                        <a href="tel:61383766284">Download Our App</a>
+                      </h4>
+                      <img src="https://qnqhealthcare.com/images/playstore.webp" class="embed-responsive-qr-playstore"  height="120" alt="QnQ Healthcare" title="QnQ Healthcare"></img>
+                      <img src="https://qnqhealthcare.com/images/qr-code.png" class="embed-responsive-qr" height="120" alt="QnQ Healthcare" title="QnQ Healthcare"></img>
+                     
+                      <a href="mailto:care@qnqhealthcare.com">care@qnqhealthcare.com</a>
                     </div>
-                    <div className="footercontact__content">
-                      <span className="footercontact__title">
-                        <Link href="/contact">
-                          Ta-134/A, Gulshan Badda Link Rd, <br /> Nya 10982 USA
-                        </Link>
+                    {/* <div className="tp-footer-widget__sub-sec">
+                      <span className="tp-footer-widget__sub-title mb-5">
+                        Career
                       </span>
-                    </div>
+                      <p>
+                        Nam eget dui vel quam sodales semper quis porttitor
+                        <br /> tortor. Vivamus quis ex nulla ...Nam eget dui vel
+                        quam <br /> sodales semper quis porttitor tortor.
+                      </p>
+                    </div> */}
                   </div>
                 </div>
-                <div className="col-lg-4 col-md-6">
+                <div className="col-lg-3 col-md-6">
                   <div
-                    className="footercontact mb-40 wow fadeInUp"
+                    className="tp-footer-widget footer-2-col-2 mb-40 wow fadeInUp"
                     data-wow-delay=".4s"
                   >
-                    <div className="footercontact__icon fw-pink-icon">
-                      <i className="flaticon-mail"></i>
+                    <span className="tp-footer-widget__title mb-15">
+                      Qnq Links
+                    </span>
+                    <div className="tp-footer-widget__links mb-35">
+                      <ul>
+                        <li>
+                          <Link href="/contact">Contact us</Link>
+                        </li>
+                        <li>
+                          <Link href="/about">Help & About us</Link>
+                        </li>
+                        <li>
+                          <Link href="/shop-details">Franchise Enquiry</Link>
+                        </li>
+                        <li>
+                          <Link href="/">Refund Policy</Link>
+                        </li>
+                        <li>
+                          <Link href="/about">About us</Link>
+                        </li>
+                        <li>
+                          <Link href="/services-details">Products</Link>
+                        </li>
+                      </ul>
                     </div>
-                    <div className="footercontact__content fw-pink-content">
-                      <a href="mailto:Rasalinawillam@gmail.com">
-                        Rasalinawillam@gmail.com
-                      </a>
-                      <a href="tel:+08987878773345">+08 98787 8773 345 </a>
+                    <div className="tp-footer-widget__sub-sec">
+                      <span className="tp-footer-widget__sub-title mb-10">
+                        Opening Hours
+                      </span>
+                      <div className="tp-footer-widget__list">
+                        <ul>
+                          <li>Office Hours: 8AM - 11PM</li>
+                          <li>Office Hours: 8AM - 11PM</li>
+                          <li>Sunday - Wekend Day</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="col-lg-4 col-md-6">
+                <div className="col-lg-2 col-md-6">
                   <div
-                    className="footercontact mb-40 wow fadeInUp"
+                    className="tp-footer-widget footer-2-col-3 mb-40 wow fadeInUp"
                     data-wow-delay=".6s"
                   >
-                    <div className="footercontact__icon fw-green-icon">
-                      <i className="flaticon-24-hours"></i>
+                    <span className="tp-footer-widget__title mb-15">
+                       Quick Links
+                    </span>
+                    <div className="tp-footer-widget__links">
+                      <ul>
+                        <li>
+                          <a href="#">Bulk Orders</a>
+                        </li>
+                        <li>
+                          <a href="#">Pharma Sourcing</a>
+                        </li>
+                        <li>
+                          <a href="shop-details">Investor Queries</a>
+                        </li>
+                        <li>
+                          <a href="#">Milestones & History</a>
+                        </li>
+                        <li>
+                          <a href="#">Terms & Conditions</a>
+                        </li>
+                        <li>
+                          <a href="#">Privacy Policy</a>
+                        </li>
+                        <li>
+                          <a href="#">Disclaimer</a>
+                        </li>
+                        <li>
+                          <a href="#">Legal Notices</a>
+                        </li>
+                        <li>
+                          <a href="#">Careers</a>
+                        </li>
+                        <li>
+                          <a href="#">Find a Pharmacy</a>
+                        </li>
+                        <li>
+                          <a href="#">Customer Feedback</a>
+                        </li>
+                      </ul>
                     </div>
-                    <div className="footercontact__content">
-                      <span>Mon - Sat - 09:00PM - 06:00AM</span>
-                      <span>Sunday - Off Day</span>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-6">
+                  <div
+                    className="tp-footer-widget footer-2-col-4 mb-40 wow fadeInUp"
+                    data-wow-delay=".8s"
+                  >
+                    <span className="tp-footer-widget__title mb-15">
+                      Contact Info
+                    </span>
+                    <div className="tp-footer-widget__links mb-120">
+                      <ul>
+                        <li>	No.51,DR Building,Opposite to Aavin Factory,Villupuram </li>
+                        <li>
+                          <a href="tel:(+880)15569569365">
+                            (+91) 95977 06555
+                          </a>
+                        </li>
+                        <li>
+                          <a href="mailto:support@rstheme.com">
+                          care@qnqhealthcare.com
+                          </a>
+                        </li>
+                        <li>Office Hours: 8AM - 11PM</li>
+                        <li>Sunday - Wekend Day</li>
+                      </ul>
+                    </div>
+                    <div className="tp-footer-widget__social fw-social">
+                      <a href="#">
+                        <i className="fa-brands fa-facebook-f"></i>
+                      </a>
+                      <a href="#">
+                        <i className="fa-brands fa-twitter"></i>
+                      </a>
+                      <a href="#">
+                        <i className="fa-brands fa-instagram"></i>
+                      </a>
+                      <a href="#">
+                        <i className="fa-light fa-basketball"></i>
+                      </a>
+                      <a href="#">
+                        <i className="fa-brands fa-youtube"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="footer-area-bottom-tp">
+          <div className="footer-area-bottom fw-border">
             <div className="container">
-              <div className="footer-bottom-border">
-                <div className="row">
-                  <div className="col-xxl-6 col-xl-7 col-lg-6 col-md-12 col-12">
-                    <div className="footer-widget__copyright cpy-white-content">
-                      <span>
-                        © Copyright © {new Date().getFullYear()}
-                        <Link href="/">  Theme_pure</Link>.
-                        <i> All Rights Reserved Copyright</i>
-                      </span>
-                    </div>
+              <div className="row">
+                <div className="col-xl-6 col-lg-6 col-md-12 col-12">
+                  <div className="footer-widget__copyright copyright-white">
+                    <span>
+                      © Copyright ©{new Date().getFullYear()}
+                      <Link href="/"> Qnq Healthcare</Link>.
+                      <i> All Rights Reserved Copyright</i>
+                    </span>
                   </div>
-                  <div className="col-xxl-6 col-xl-5 col-lg-6 col-md-12 col-12">
-                    <div className="footer-widget__copyright-info info-direction cpy-white-content-info">
-                      <ul className="d-flex align-items-center">
-                        <li>
-                          <a href="#">Terms and conditions</a>
-                        </li>
-                        <li>
-                          <a href="#">Privacy policy</a>
-                        </li>
-                        <li>
-                          <a href="#">Pricing</a>
-                        </li>
-                      </ul>
-                    </div>
+                </div>
+                <div className="col-xl-6 col-lg-6 col-md-12 col-12">
+                  <div className="footer-widget__copyright-info info-direction">
+                    <ul className="d-flex align-items-center">
+                      <li>
+                        <a href="#">Terms and conditions</a>
+                      </li>
+                      <li>
+                        <a href="#">Privacy policy</a>
+                      </li>
+                      <li>
+                        <a href="#">Press</a>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>

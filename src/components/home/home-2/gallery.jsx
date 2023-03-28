@@ -88,13 +88,13 @@ const Gallery = () => {
               ))}
             </div>
             <div className="row">
-              <div className="col-lg-12">
+              {/* <div className="col-lg-12">
                 <div className="gallery-btn text-center mt-30">
                   <Link href="/portfolio-details" className="tp-btn">
                     Explore More
                   </Link>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

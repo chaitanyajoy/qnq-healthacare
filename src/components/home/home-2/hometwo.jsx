@@ -23,10 +23,11 @@ const HomeTwo = () => {
     <SliderHome/>
       {/* <HeroBanner /> */}
       <About />
+      <NavTab/>
       <ServiceArea/>
       {/* <Service /> */}
-      <NavTab/>
-      <Gallery />
+      
+      {/* <Gallery /> */}
       
       <Specialists/>
       <Counter cls="pt-80 pb-100" />

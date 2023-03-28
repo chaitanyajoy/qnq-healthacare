@@ -59,12 +59,12 @@ const tab_content = [
     ),
     des_2: (
       <>
-        We make an effort to ensure that these drugs utilise the most modern technique for production and research. We pledge to give every one of our customers the greatest healthcare experience achievable.
+        
       </>
     ),
     images: [
-      { order: "order-lg-1", img: "/assets/img/tab/tab-thumb-03.jpg" },
-      { order: "order-lg-3", img: "/assets/img/tab/tab-thumb-04.jpg" },
+      { order: "order-lg-1", img: "/assets/img/team/RO image/1.jpg" },
+      { order: "order-lg-3", img: "/assets/img/team/RO image/2.jpg" },
     ],
   },
   {
@@ -88,8 +88,8 @@ const tab_content = [
       </>
     ),
     images: [
-      { order: "order-lg-1", img: "/assets/img/tab/tab-thumb-01.jpg" },
-      { order: "order-lg-3", img: "/assets/img/tab/tab-thumb-02.jpg" },
+      { order: "order-lg-1", img: "/assets/img/team/RO image/3.jpg" },
+      { order: "order-lg-3", img: "/assets/img/team/RO image/4.jpg" },
     ],
   },
 ];
@@ -126,7 +126,7 @@ const NavTab = () => {
                 aria-selected="false"
                 tabIndex="-1"
               >
-                OUr Mission
+                Our Mission
               </button>
             </li>
             <li className="nav-item" role="presentation">
