@@ -1,4 +1,4 @@
-.uploadBtn{
+.uploadBtn {
     background: radial-gradient(#e7f238, #13a22da1);
     margin-right: 80px;
     margin-left: 30px;
@@ -9,76 +9,162 @@
     padding-left: 20px;
 }
 
-.icon-color{
+.icon-color {
     color: green;
 }
 
-.about-round-icon-logo{
+.about-round-icon-logo {
     border-radius: 100px;
     padding-bottom: 15px;
 }
 
-
 /*SLIDER - HOME*/
 @keyframes slidy {
-    0% { left: 0%; }
-    20% { left: 0%; }
-    25% { left: -100%; }
-    45% { left: -100%; }
-    50% { left: -200%; }
-    70% { left: -200%; }
-    75% { left: -300%; }
-    95% { left: -300%; }
-    100% { left: -400%; }
+    0% {
+        left: 0%;
     }
-    
-    body { margin: 0; } 
-    div#slider { overflow: hidden;
-        /* margin-right: 90px;
+    20% {
+        left: 0%;
+    }
+    25% {
+        left: -100%;
+    }
+    45% {
+        left: -100%;
+    }
+    50% {
+        left: -200%;
+    }
+    70% {
+        left: -200%;
+    }
+    75% {
+        left: -300%;
+    }
+    95% {
+        left: -300%;
+    }
+    100% {
+        left: -400%;
+    }
+}
+
+body {
+    margin: 0;
+}
+div#slider {
+    overflow: hidden;
+    /* margin-right: 90px;
         margin-left: 90px;
         margin-top: 30px;
         margin-bottom: 30px;
         border-radius: 30px;
         box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px; */
-    }
-    div#slider figure img { width: 20%; float: left; }
-    div#slider figure { 
-      position: relative;
-      width: 500%;
-      margin: 0;
-      left: 0;
-      text-align: left;
-      font-size: 0;
-      animation: 30s slidy infinite; 
-    }
-    
+}
+div#slider figure img {
+    width: 20%;
+    float: left;
+}
+div#slider figure {
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    text-align: left;
+    font-size: 0;
+    animation: 30s slidy infinite;
+}
 
-    /* Testimonials background*/
-    .home-testimonials{
-        background: linear-gradient(0deg, rgb(6 38 165 / 40%), rgb(18 18 27 / 44%)), url(https://images.pexels.com/photos/5910953/pexels-photo-5910953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+/* Testimonials background*/
+.home-testimonials {
+    background: linear-gradient(0deg, rgb(6 38 165 / 40%), rgb(18 18 27 / 44%)),
+        url(https://images.pexels.com/photos/5910953/pexels-photo-5910953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-
-
-    /*App*/
-    .embed-responsive-qr{
-        margin-top: 10px;
+/*App*/
+.embed-responsive-qr {
+    margin-top: 10px;
     margin-right: 10px;
-    
-    }
+}
 
-    .embed-responsive-qr-playstore{
+.embed-responsive-qr-playstore {
     width: 270px;
     height: 100px;
-    }
+}
 
-    /*OTP Hidden*/
+/*OTP Hidden*/
 
-    #OTPForm {
-        visibility: hidden;
-    }
+#OTPForm {
+    visibility: hidden;
+}
+
+.file-upload-modal-header-text{
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-family: 'Baloo Tamma 2';
+}
+
+.file-upload-modal-header {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    color: #fff;
+    background: #272e38;
+    border-radius: 0;
+}
+.file-upload-header-text{
+    border: none;
+    padding: 18px 25px;
+    color: #fff;
+    background: #272e38;
+    border-radius: 0;
+    width: -webkit-fill-available;
+}
+.active-file-header-text{
+    border: none;
+    padding: 18px 25px;
+    color: #fff;
+    background: #e74c3c;
+    border-radius: 0;
+    width: -webkit-fill-available;
+}
+.header-seperator-line{
+    border-top: 1px solid black;
+    margin-bottom: 10px;
+}
+.header-and-content-seperator{
+    border-top: 5px solid #e74c3c;
+    line-height: 25px;
+}
+
+.header-button-wise-container{
+    border: 1px solid rgb(74, 69, 69);
+}
+h2{
+    font-size: 22px;
+    font-family: 'Baloo Tamma 2';
+}
+.prescription-upload-indtruction{
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+.prescription-upload-next-button{
+    cursor: pointer;
+    color: #fff;
+    padding: 13px;
+    background-color: #28a745;
+    border-color: #28a745;
+    border-radius: 1.5vw;
+    display: flex;
+    margin-left: auto;
+}
+.Details-fill-form{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
 
    /* about - Aboutcontent1 text*/
     .alignment-left{
