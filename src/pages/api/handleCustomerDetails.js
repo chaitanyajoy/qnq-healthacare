@@ -3,21 +3,20 @@ const handler = async (req, res) => {
     const options = {
         method: "GET",
         headers: {
-            companyid: "917d8aa2-7c4e-4282-b27f-0beb0228ac7b",
             "content-type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            info: req.headers.info,
+            cusrefid: req.headers.cusrefid,
         },
     };
+    console.log("Test user is here with options", options)
 
     //fetch url
-    const url = `http://qnqhealthcare.com/qnqerpws/ws/sendotp`;
+    const url = `https://qnqhealthcare.com/qnqerpws/ws/getcustomerbyid`;
 
     // fetch request
-    console.log("info is", JSON.parse(req.headers.info))
     try {
         const response = await fetch(url, options);
         const data = await response.json();
+        console.log("test user details is ", data)
         return res.end(JSON.stringify({ "success": data }));
     } catch (error) {
         return res.end(JSON.stringify({ "error": error.msg }));

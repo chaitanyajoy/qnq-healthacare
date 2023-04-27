@@ -1,5 +1,4 @@
 const handler = async (req, res) => {
-    console.log("mobile number is ",JSON.parse(req.headers.customer).MobileNo)
     //fetch options
     const options = {
         method: "GET",
@@ -12,8 +11,6 @@ const handler = async (req, res) => {
         },
     };
 
-    console.log("options is ", options)
-
     //fetch url
     const url = `https://qnqhealthcare.com/qnqerpws/ws/updatecustomerlogin`;
 
@@ -21,7 +18,7 @@ const handler = async (req, res) => {
     try {
         const response = await fetch(url, options);
         const data = await response.json();
-        console.log("data is ", data)
+        console.log("test user data is", data)
         return res.end(JSON.stringify({ success: data }));
     } catch (error) {
         return res.end(JSON.stringify({ error: error.msg }));

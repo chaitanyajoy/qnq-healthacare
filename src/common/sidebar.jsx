@@ -1,10 +1,11 @@
 import MobileMenus from "@/layout/header/mobile-menus";
 import ImagePopup from "@/modals/ImagePopup";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import fetch from "node-fetch";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
+import { useGlobalContext } from "@/components/contexts/GlobalContext";
 
 const images = [
     {
@@ -29,14 +30,18 @@ const Sidebar = ({ isActive, setIsActive }) => {
     // changeMobileNumberHandler(event){
     //         this.setState({instituteName: event.target.value});
     // }
-    const [sendOTPClicked, setSendOTPClicked] = useState(true);
-    const [mobileNumber, setMobileNumber] = useState();
+    const [sendOTPClicked, setSendOTPClicked] = useState(false);
+    // const [mobileNumber, setMobileNumber] = useState();
     const [otpLogin, setOTPLogin] = useState(false);
 
     // photoIndex
     const [photoIndex, setPhotoIndex] = useState(null);
     // image open state
     const [isOpen, setIsOpen] = useState(false);
+
+    const { mobileNumber, setMobileNumber, customerID, setCustomerID, custName, setCustName } =
+        useGlobalContext();
+
     // handleImagePopup
     const handleImagePopup = (i) => {
         setPhotoIndex(i);
@@ -46,17 +51,16 @@ const Sidebar = ({ isActive, setIsActive }) => {
     const img = images.map((item) => item.img);
 
     const sendOTP = async (mobileNo) => {
-        document.getElementById("OTPForm").style = "visibility: visible";
+        // document.getElementById("OTPForm").style = "visibility: visible";
         // const mobileNo = document.getElementById("mobileNumber");
         // const mobileNumber = mobileNo.value;
         const mobileNumber = mobileNo;
-        var elt = document.getElementById("mobileNumber");
-        elt.parentNode.removeChild(elt);
+        // var elt = document.getElementById("mobileNumber");
+        // elt.parentNode.removeChild(elt);
         const url = "/api/handleSendOTP";
         const options = {
             method: "GET",
             mode: "cors",
-            // body: '', // string or object
             headers: {
                 companyid: "917d8aa2-7c4e-4282-b27f-0beb0228ac7b",
                 "content-type": "application/json",
@@ -67,15 +71,18 @@ const Sidebar = ({ isActive, setIsActive }) => {
         const response = await fetch(url, options);
 
         const res = await response.json(); //extract JSON from the http response
-        console.log("response is ", res);
     };
 
-    const verifyOTP = async (mobileNo) => {
+    const verifyOTP = async (e, mobileNo) => {
         // document.getElementById("OTPForm").style = "visibility: visible";
         // const mobileNo = document.getElementById("mobileNumber");
+        e.preventDefault();
         const mobileNumber = mobileNo;
         const otp = document.getElementById("mobileNumberOTP");
         const otpValue = otp.value;
+
+        // var elt = document.getElementById("mobileNumberOTP");
+        // elt.parentNode.removeChild(elt);
 
         const url = "/api/handleSubmitButton";
         const options = {
@@ -89,28 +96,42 @@ const Sidebar = ({ isActive, setIsActive }) => {
             },
         };
 
-        console.log("verify otp options is ", options);
-
         const response = await fetch(url, options);
         const res = await response.json(); //extract JSON from the http response
+        if (res && res.success && res.success.output) {
+            var userId = JSON.parse(res.success.output).Id;
+            localStorage.setItem("userLoggedIn", !res.success.isError);
+            localStorage.setItem("customerId", userId);
+            localStorage.setItem("customerDetails", res.success.output);
+        }
         setOTPLogin(res.success.isError);
-    };
-    const displayOTPForm = (mobileNo) => {
-        // const mobileNo = document.getElementById('mobileNumber');
-        // const mobileNumber = mobileNo.innerText;
-        sendOTP(mobileNo);
+        setIsActive(res.success.isError);
     };
 
-    const toggleSendOTP = () => {
-        setSendOTPClicked(false);
+    const getUserDetails = async (userId) => {
+        const url = "/api/handleCustomerDetails";
+        const options = {
+            method: "GET",
+            headers: {
+                // "content-type": "application/json",
+                cusrefid: String(userId),
+            },
+        };
+
+        const response = await fetch(url, options);
+        const res = await response.json();
+        if (res && res.success && res.success.output) {
+            const userDetails = JSON.parse(res.success.output)[0];
+            await setCustName(userDetails.PrintName);
+        }
+        console.log("User details is ", JSON.parse(res.success.output)[0].PrintName);
+    };
+    const displayOTPForm = (e) => {
+        e.preventDefault();
+        sendOTP(mobileNumber);
+        setSendOTPClicked(true);
     };
 
-    const handleSendOTPClick = async () => {
-        console.log("yes check is here");
-
-        toggleSendOTP();
-        displayOTPForm();
-    };
 
     return (
         <>
@@ -132,43 +153,66 @@ const Sidebar = ({ isActive, setIsActive }) => {
 
                 <div className="tpsideinfo__content-inputarea mb-60 d-none d-xl-block">
                     <span>Login / Register</span>
-                    <div className="tpsideinfo__content-inputarea-input">
-                        <form action="#">
-                            <input
-                                type="text"
-                                placeholder="Enter Mobile Number"
-                                id="mobileNumber"
-                            />
-                            <button
-                                className="tpsideinfo__content-inputarea-input-btn"
-                                id="OTPSubmit"
-                                onChange={(e) => setMobileNumber(e.target.value)}
-                                onClick={() => displayOTPForm(mobileNumber)}
-                            >
-                                <i className="fa-solid fa-paper-plane"></i>
-                                Send OTP
-                            </button>
-                        </form>
-                    </div>
-                    <div className="tpsideinfo__content-inputarea-input hidden" id="OTPForm">
-                        <form action="#">
-                            <input type="text" placeholder="Enter OTP" id="mobileNumberOTP" />
-                            <button
-                                className="tpsideinfo__content-inputarea-input-btn"
-                                onClick={() => verifyOTP(mobileNumber)}
-                            >
-                                <i className="fa-solid fa-paper-plane"></i>
-                                Submit
-                            </button>
-                            {otpLogin && (
-                                <div>
-                                    <Stack sx={{ width: "100%" }} spacing={2}>
-                                        <Alert severity="error">Invalid OTP — check it out!</Alert>
-                                    </Stack>
+                    {!sendOTPClicked && (
+                        <div className="tpsideinfo__content-inputarea-input">
+                            <form action="#" onSubmit={displayOTPForm}>
+                                <input
+                                    required
+                                    type="tel"
+                                    pattern="[0-9]{10}"
+                                    placeholder="Enter Mobile Number"
+                                    id="mobileNumber"
+                                    onChange={(e) => setMobileNumber(e.target.value)}
+                                />
+                                <button
+                                    className="tpsideinfo__content-inputarea-input-btn"
+                                    id="OTPSubmit"
+                                >
+                                    <i className="fa-solid fa-paper-plane"></i>
+                                    Send OTP
+                                </button>
+                            </form>
+                        </div>
+                    )}
+                    {sendOTPClicked && (
+                        <div className="tpsideinfo__content-inputarea-input">
+                            <form action="#" onSubmit={(e) => verifyOTP(e, mobileNumber)}>
+                                <input type="number" placeholder="Enter OTP" id="mobileNumberOTP" />
+                                <button
+                                    className="tpsideinfo__content-inputarea-input-btn"
+                                    // onClick={() => verifyOTP(mobileNumber)}
+                                >
+                                    <i className="fa-solid fa-paper-plane"></i>
+                                    Submit
+                                </button>
+                                {otpLogin && (
+                                    <div>
+                                        <Stack sx={{ width: "100%" }} spacing={2}>
+                                            <Alert severity="error">
+                                                Invalid OTP — check it out!
+                                            </Alert>
+                                        </Stack>
+                                    </div>
+                                )}
+                            </form>
+                            <div style={{display:"flex", paddingTop:"3px"}}>
+                                    <div style={{ color: "white" , marginRight:"27px"}}>
+                                        Enter OTP sent to : {mobileNumber}
+                                    </div>
+                                    <button
+                                        style={{
+                                            color: "white",
+                                            background: "green",
+                                            borderRadius: "5px",
+                                            padding: "3px"
+                                        }}
+                                        onClick={()=>{setSendOTPClicked(false)}}
+                                    >
+                                        Change Number
+                                    </button>
                                 </div>
-                            )}
-                        </form>
-                    </div>
+                        </div>
+                    )}
                 </div>
                 {/* statement and contact */}
                 <div className="tpsideinfo__content mb-60">

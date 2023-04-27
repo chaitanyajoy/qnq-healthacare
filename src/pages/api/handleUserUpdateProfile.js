@@ -1,20 +1,23 @@
 const handler = async (req, res) => {
+    //fetch options
+
+    console.log("User details posted successfully");
     const options = {
         method: "POST",
         body: JSON.stringify({
             CustomerName: JSON.parse(req.body).CustomerName,
             MobileNo: JSON.parse(req.body).MobileNo,
-            Street: JSON.parse(req.body).Street,
-            Locality: JSON.parse(req.body).Locality,
+            Address: JSON.parse(req.body).Address,
+            Landmark: JSON.parse(req.body).Landmark,
             City: JSON.parse(req.body).City,
             PinCode: JSON.parse(req.body).PinCode,
-            State: JSON.parse(req.body).State,
-            PrescriptionImage: JSON.parse(req.body).PrescriptionImage,
+            State: "Tamil Nadu",
+            Id: JSON.parse(req.body).Id,
         }),
     };
 
     //fetch url
-    const url = `https://qnqhealthcare.com/qnqerpws/ws/addweborderconfirm`;
+    const url = `http://qnqhealthcare.com/qnqerpws/ws/updateuser`;
 
     // fetch request
     try {
