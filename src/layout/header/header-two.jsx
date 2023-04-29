@@ -87,7 +87,7 @@ const HeaderTwo = () => {
                   <div className="header-time">
                   <button class="uploadBtn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
               >
-                <svg
+                {/* <svg
                   width="14"
                   height="20"
                   viewBox="0 0 16 16"
@@ -99,7 +99,7 @@ const HeaderTwo = () => {
                     fill="#030708"
                   ></path>
                   <path d="M2 16L14 16V14L2 14V16Z" fill="#030708"></path>
-                </svg>
+                </svg> */}
                 <span class='pl-2'> UPLOAD</span>
               </button>
                     <span class='social-icons'>  <i class="fa-brands fa-facebook"></i> <i class="fa-brands fa-instagram"></i> <i class="fa-brands fa-youtube"></i></span>
@@ -205,7 +205,7 @@ const HeaderTwo = () => {
                     <button className="header-bottom-btn"
                     onClick={() => setIsActive(true)}
                     >
-                      LOGIN / REGSITER
+                      LOGIN / REGISTER
                     </button>
                   </div>
                 </div>

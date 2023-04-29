@@ -99,6 +99,37 @@ const NavTab = () => {
       <section className="nav-area tp-common-area pt-130 pb-80">
         <div className="container">
           <ul className="nav tp-nav-tavs mb-70" id="myTab" role="tablist">
+          <li className="nav-item" role="presentation">
+              <button
+                className="nav-link"
+                id="profile-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#profile-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="profile-tab-pane"
+                aria-selected="false"
+                tabIndex="-1"
+              >
+                Our Mission
+              </button>
+            </li>
+          <li className="nav-item" role="presentation">
+              <button
+                className="nav-link"
+                id="contact-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#contact-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="contact-tab-pane"
+                aria-selected="false"
+                tabIndex="-1"
+              >
+                OUr Value
+              </button>
+            </li>
+            
             <li className="nav-item" role="presentation">
               <button
                 className="nav-link active"
@@ -114,36 +145,8 @@ const NavTab = () => {
                 Our Process
               </button>
             </li>
-            <li className="nav-item" role="presentation">
-              <button
-                className="nav-link"
-                id="profile-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#profile-tab-pane"
-                type="button"
-                role="tab"
-                aria-controls="profile-tab-pane"
-                aria-selected="false"
-                tabIndex="-1"
-              >
-                Our Mission
-              </button>
-            </li>
-            <li className="nav-item" role="presentation">
-              <button
-                className="nav-link"
-                id="contact-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#contact-tab-pane"
-                type="button"
-                role="tab"
-                aria-controls="contact-tab-pane"
-                aria-selected="false"
-                tabIndex="-1"
-              >
-                OUr Value
-              </button>
-            </li>
+           
+            
           </ul>
           <div className="tab-content" id="myTabContent">
             <div

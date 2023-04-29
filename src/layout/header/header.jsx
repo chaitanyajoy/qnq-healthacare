@@ -258,7 +258,7 @@ const Header = () => {
                                                             <hr class="dropdown-divider" />
                                                         </li>
                                                         <li>
-                                                            <a class="dropdown-item" href="#">
+                                                            <a class="dropdown-item" href="#" onClick={()=> setIsLoggedIn(false)}>
                                                                 Sign out
                                                             </a>
                                                         </li>
@@ -270,7 +270,7 @@ const Header = () => {
                                                 className="header-bottom-btn"
                                                 onClick={() => setIsActive(true)}
                                             >
-                                                LOGIN / REGSITER
+                                                LOGIN / REGISTER
                                             </button>
                                         )}
                                     </div>

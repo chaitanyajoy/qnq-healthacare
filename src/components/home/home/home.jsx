@@ -12,11 +12,33 @@ import ServiceArea from "./service-area";
 import Specialists from "../../../common/specialists";
 import Team from "../../../common/team";
 import NewsLetter from "./news-letter";
+import SliderHome from "@/components/slider/Slider";
+import NavTab from "@/common/nav-tab";
 
 const HomeOne = () => {
   return (
     <>
-      <HeroBanner />
+
+<SliderHome/>
+      {/* <HeroBanner /> */}
+      <About />
+      <NavTab/>
+      <ServiceArea/>
+      {/* <Service /> */}
+      
+      {/* <Gallery /> */}
+      
+      <Specialists/>
+      <Counter cls="pt-80 pb-100" />
+      {/* <Choose /> */}
+      {/* <Appointment /> */}
+      {/* <Brands border_style={true} /> */}
+      {/* <Team /> */}
+      <Feedback/>
+      {/* <Testimonial bg_img={true} /> */}
+      {/* <Blog /> */}
+      <NewsLetter />
+      {/* <HeroBanner />
       <ServiceArea />
       <About />
       <Counter />
@@ -27,7 +49,7 @@ const HomeOne = () => {
       <Feedback />
       <Brands />
       <Cta_Area />
-      <NewsLetter/>
+      <NewsLetter/> */}
       {/* <Blog /> */}
     </>
   );
