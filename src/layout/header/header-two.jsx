@@ -1,14 +1,15 @@
 import Sidebar from "@/common/sidebar";
 import useSticky from "hooks/use-sticky";
 import Link from "next/link";
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import NavMenu from "./nav-menu";
+import Router from "next/router";
 
 const HeaderTwo = () => {
     const { sticky } = useSticky();
     const [isActive, setIsActive] = useState(false);
 
-    const [ isLoggedIn, setIsLoggedIn ] = useState();
+    const [isLoggedIn, setIsLoggedIn] = useState();
 
     useEffect(() => {
         setIsLoggedIn(localStorage.getItem("userLoggedIn"));
@@ -214,7 +215,7 @@ const HeaderTwo = () => {
                         </div>
                       </div>
                     </div> */}
-                                       {isLoggedIn ? (
+                                        {isLoggedIn ? (
                                             <div style={{ marginTop: "17px", marginRight: "40px" }}>
                                                 <div class="dropdown text-end">
                                                     <a
@@ -256,7 +257,15 @@ const HeaderTwo = () => {
                                                             <hr class="dropdown-divider" />
                                                         </li>
                                                         <li>
-                                                            <a class="dropdown-item" href="#" onClick={()=> {localStorage.clear(), setIsLoggedIn(false)}}>
+                                                            <a
+                                                                class="dropdown-item"
+                                                                href="#"
+                                                                onClick={() => {
+                                                                    localStorage.clear(),
+                                                                        setIsLoggedIn(false),
+                                                                        Router.push("/");
+                                                                }}
+                                                            >
                                                                 Sign out
                                                             </a>
                                                         </li>
