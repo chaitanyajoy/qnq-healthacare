@@ -1,7 +1,7 @@
 import Counter from "@/common/counter";
 import HeaderTwo from "@/layout/header/header-two";
 import HeaderOne from "@/layout/header/header"
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "./banner";
 import Specialists from "@/common/specialists";
 import NavTab from "@/common/nav-tab";

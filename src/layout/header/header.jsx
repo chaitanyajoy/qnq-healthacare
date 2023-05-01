@@ -5,7 +5,8 @@ import Link from "next/link";
 import React, { useState } from "react";
 import NavMenu from "./nav-menu";
 import FileUpload from "./fileUpload";
-import {useGlobalContext} from "@/components/contexts/GlobalContext"
+import { useGlobalContext } from "@/components/contexts/GlobalContext";
+import Router from "next/router";
 
 const Header = () => {
     const [toggleUpload, setToggleUpload] = useState(false);
@@ -13,15 +14,15 @@ const Header = () => {
     const [isActive, setIsActive] = useState(false);
     // const [isLoggedIn, setIsLoggedIn] = useState();
 
-    const {isLoggedIn, setIsLoggedIn} = useGlobalContext()
+    const { isLoggedIn, setIsLoggedIn } = useGlobalContext();
 
     useEffect(() => {
-        setIsLoggedIn(localStorage.getItem('userLoggedIn'))
-      },[isLoggedIn,[]])
+        setIsLoggedIn(localStorage.getItem("userLoggedIn"));
+    }, [isLoggedIn, []]);
 
-    const toggleFileUpload =() => {
+    const toggleFileUpload = () => {
         setToggleUpload(!toggleUpload);
-    }
+    };
 
     return (
         <>
@@ -99,7 +100,10 @@ const Header = () => {
                                 </div>
                                 <div className="col-lg-8">
                                     <div className="header-time">
-                                        <button class="uploadBtn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center" onClick={toggleFileUpload}>
+                                        <button
+                                            class="uploadBtn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+                                            onClick={toggleFileUpload}
+                                        >
                                             <svg
                                                 width="14"
                                                 height="20"
@@ -265,7 +269,15 @@ const Header = () => {
                                                             <hr class="dropdown-divider" />
                                                         </li>
                                                         <li>
-                                                            <a class="dropdown-item" href="#" onClick={()=> {localStorage.clear(), setIsLoggedIn(false)}}>
+                                                            <a
+                                                                class="dropdown-item"
+                                                                href="#"
+                                                                onClick={() => {
+                                                                    localStorage.clear(),
+                                                                        setIsLoggedIn(false),
+                                                                        Router.push("/");
+                                                                }}
+                                                            >
                                                                 Sign out
                                                             </a>
                                                         </li>
@@ -290,7 +302,7 @@ const Header = () => {
 
             {/* side bar start */}
             <Sidebar isActive={isActive} setIsActive={setIsActive} />
-            <FileUpload toggleUpload ={toggleUpload} setToggleUpload={setToggleUpload}/>
+            <FileUpload toggleUpload={toggleUpload} setToggleUpload={setToggleUpload} />
             {/* side bar end */}
         </>
     );

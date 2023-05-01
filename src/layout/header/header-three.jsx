@@ -3,6 +3,7 @@ import useSticky from "hooks/use-sticky";
 import Link from "next/link";
 import React, { useState , useEffect} from "react";
 import NavMenu from "./nav-menu";
+import Router from "next/router";
 
 const HeaderThree = () => {
     const { sticky } = useSticky();
@@ -102,6 +103,7 @@ const HeaderThree = () => {
                                                                 onClick={() => {
                                                                     localStorage.clear(),
                                                                         setIsLoggedIn(false);
+                                                                        Router.push("/")
                                                                 }}
                                                             >
                                                                 Sign out
