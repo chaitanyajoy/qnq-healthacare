@@ -35,11 +35,12 @@ function fileUpload({ toggleUpload, setToggleUpload }) {
     const [name, setName] = useState();
     const [MobileNo, setMobileNo] = useState();
     const [address, setAddress] = useState();
-    const [placeOrderStatus, setPlaceOrderStatus] = useState(false);
+    const [placeOrderStatus, setPlaceOrderStatus] = useState(null);
 
     const handleClose = () => setToggleUpload(false);
 
-    const sendFileUpload = async () => {
+    const sendFileUpload = async (e) => {
+        e.preventDefault();
         const fileInput = file;
         const formData = new FormData();
 
@@ -56,7 +57,8 @@ function fileUpload({ toggleUpload, setToggleUpload }) {
         // console.log("upload response is ", res);
     };
 
-    const placeOrder = async () => {
+    const placeOrder = async (e) => {
+        e.preventDefault();
         const url = "/api/handlePlaceOrder";
         const options = {
             method: "POST",
@@ -101,11 +103,11 @@ function fileUpload({ toggleUpload, setToggleUpload }) {
                                 className={
                                     upload ? "active-file-header-text" : "file-upload-header-text"
                                 }
-                                onClick={() => {
-                                    setUpload(true);
-                                    setDetails(false);
-                                    setConfirm(false);
-                                }}
+                                // onClick={() => {
+                                //     setUpload(true);
+                                //     setDetails(false);
+                                //     setConfirm(false);
+                                // }}
                             >
                                 Upload
                             </button>
@@ -113,11 +115,11 @@ function fileUpload({ toggleUpload, setToggleUpload }) {
                                 className={
                                     details ? "active-file-header-text" : "file-upload-header-text"
                                 }
-                                onClick={() => {
-                                    setUpload(false);
-                                    setDetails(true);
-                                    setConfirm(false);
-                                }}
+                                // onClick={() => {
+                                //     setUpload(false);
+                                //     setDetails(true);
+                                //     setConfirm(false);
+                                // }}
                             >
                                 Details
                             </button>
@@ -125,11 +127,11 @@ function fileUpload({ toggleUpload, setToggleUpload }) {
                                 className={
                                     confirm ? "active-file-header-text" : "file-upload-header-text"
                                 }
-                                onClick={() => {
-                                    setUpload(false);
-                                    setDetails(false);
-                                    setConfirm(true);
-                                }}
+                                // onClick={() => {
+                                //     setUpload(false);
+                                //     setDetails(false);
+                                //     setConfirm(true);
+                                // }}
                             >
                                 Confirm
                             </button>
@@ -138,37 +140,40 @@ function fileUpload({ toggleUpload, setToggleUpload }) {
                             <div className="header-and-content-seperator"></div>
                             {upload && (
                                 <div>
-                                    <div>Prescription file input</div>
-                                    <div>
-                                        <input type="file" onChange={handleFileChange} />
-                                    </div>
-                                    <div className="prescription-upload-indtruction">
-                                        <div className={classes.text} style={{}}>
-                                            <h2>Prescription Upload Instruction :</h2>
+                                    <form action="#" onSubmit={sendFileUpload}>
+                                        <div>Prescription file input</div>
+                                        <div>
+                                            <input type="file" onChange={handleFileChange} />
+                                        </div>
+                                        <div className="prescription-upload-indtruction">
+                                            <div className={classes.text} style={{}}>
+                                                <h2>Prescription Upload Instruction :</h2>
+                                            </div>
+                                            <div>
+                                                <ul>
+                                                    <li>
+                                                        Ensure that the entire prescription is
+                                                        visible (including the doctor/clinic’s
+                                                        letterhead)
+                                                    </li>
+                                                    <li>Upload only .jpg, .png or .pdf files</li>
+                                                    <li>Maximum File Size 5MB</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                         <div>
-                                            <ul>
-                                                <li>
-                                                    Ensure that the entire prescription is visible
-                                                    (including the doctor/clinic’s letterhead)
-                                                </li>
-                                                <li>Upload only .jpg, .png or .pdf files</li>
-                                                <li>Maximum File Size 5MB</li>
-                                            </ul>
+                                            <button
+                                                className="prescription-upload-next-button"
+                                                onClick={() => {
+                                                    setUpload(false);
+                                                    setDetails(true);
+                                                    // sendFileUpload();
+                                                }}
+                                            >
+                                                Next
+                                            </button>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <button
-                                            className="prescription-upload-next-button"
-                                            onClick={() => {
-                                                setUpload(false);
-                                                setDetails(true);
-                                                sendFileUpload();
-                                            }}
-                                        >
-                                            Next
-                                        </button>
-                                    </div>
+                                    </form>
                                 </div>
                             )}
                             {details && (
@@ -201,7 +206,7 @@ function fileUpload({ toggleUpload, setToggleUpload }) {
                             )}
                             {confirm && (
                                 <div>
-                                    <form>
+                                    <form action="#" onSubmit={placeOrder}>
                                         <div className="Details-fill-form">
                                             <TextField
                                                 label="Address and Confirm"
@@ -210,18 +215,41 @@ function fileUpload({ toggleUpload, setToggleUpload }) {
                                             />
                                         </div>
                                         <div>
-                                            <button
-                                                className="prescription-upload-next-button"
-                                                onClick={placeOrder}
-                                            >
-                                                Confirm
-                                            </button>
+                                            {placeOrderStatus ? (
+                                                <button
+                                                    className="prescription-upload-next-button"
+                                                    onClick={() => {
+                                                        setToggleUpload(false);
+                                                        setPlaceOrderStatus();
+                                                        setConfirm(false);
+                                                        setUpload(true);
+                                                    }}
+                                                >
+                                                    Close
+                                                </button>
+                                            ) : (
+                                                <button
+                                                    className="prescription-upload-next-button"
+                                                    // onClick={placeOrder}
+                                                >
+                                                    Confirm
+                                                </button>
+                                            )}
                                         </div>
                                     </form>
+
                                     {placeOrderStatus && (
                                         <Stack sx={{ width: "100%" }} spacing={2}>
                                             <Alert severity="success">
-                                                Your order is successfully placed, delivery in 5-7 days
+                                                Your order is successfully placed, delivery in 5-7
+                                                days😊
+                                            </Alert>
+                                        </Stack>
+                                    )}
+                                    {placeOrderStatus=='false' && (
+                                        <Stack sx={{ width: "100%" }} spacing={2}>
+                                            <Alert severity="error">
+                                                Something went wrong, please try again!
                                             </Alert>
                                         </Stack>
                                     )}

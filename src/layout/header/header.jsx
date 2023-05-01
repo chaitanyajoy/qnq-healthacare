@@ -1,18 +1,25 @@
+import { useEffect } from "react";
 import Sidebar from "@/common/sidebar";
 import useSticky from "hooks/use-sticky";
 import Link from "next/link";
 import React, { useState } from "react";
 import NavMenu from "./nav-menu";
 import FileUpload from "./fileUpload";
+import {useGlobalContext} from "@/components/contexts/GlobalContext"
 
 const Header = () => {
     const [toggleUpload, setToggleUpload] = useState(false);
     const { sticky } = useSticky();
     const [isActive, setIsActive] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    // const [isLoggedIn, setIsLoggedIn] = useState();
+
+    const {isLoggedIn, setIsLoggedIn} = useGlobalContext()
+
+    useEffect(() => {
+        setIsLoggedIn(localStorage.getItem('userLoggedIn'))
+      },[isLoggedIn,[]])
 
     const toggleFileUpload =() => {
-        console.log("file upload is ",toggleUpload)
         setToggleUpload(!toggleUpload);
     }
 
@@ -240,7 +247,7 @@ const Header = () => {
                                                         aria-labelledby="dropdownUser1"
                                                     >
                                                         <li>
-                                                            <a class="dropdown-item" href="#">
+                                                            <a class="dropdown-item" href="profile">
                                                                 Profile
                                                             </a>
                                                         </li>
@@ -258,7 +265,7 @@ const Header = () => {
                                                             <hr class="dropdown-divider" />
                                                         </li>
                                                         <li>
-                                                            <a class="dropdown-item" href="#" onClick={()=> setIsLoggedIn(false)}>
+                                                            <a class="dropdown-item" href="#" onClick={()=> {localStorage.clear(), setIsLoggedIn(false)}}>
                                                                 Sign out
                                                             </a>
                                                         </li>
@@ -270,7 +277,7 @@ const Header = () => {
                                                 className="header-bottom-btn"
                                                 onClick={() => setIsActive(true)}
                                             >
-                                                LOGIN / REGISTER
+                                                LOGIN / REGSITER
                                             </button>
                                         )}
                                     </div>

@@ -126,7 +126,7 @@ div#slider figure {
     border: none;
     padding: 18px 25px;
     color: #fff;
-    background: #e74c3c;
+    background: green;
     border-radius: 0;
     width: -webkit-fill-available;
 }
@@ -135,7 +135,7 @@ div#slider figure {
     margin-bottom: 10px;
 }
 .header-and-content-seperator{
-    border-top: 5px solid #e74c3c;
+    border-top: 5px solid green;
     line-height: 25px;
 }
 
